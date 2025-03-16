@@ -24,7 +24,7 @@ Content-Type: application/json
 # }
 
 {
-  "query": "query getAuthor($id: ID!) { author(id: $id) { id name } }",
+  "query": "query getAuthor($id: ID!) { author(id: $id) { id name books { id title } } }",
   "variables": {
     "id": "67d63e0ee21a69565b84d01e"
   }
@@ -35,7 +35,7 @@ POST http://localhost:3000/graphql
 Content-Type: application/json
 
 {
-  "query": "{ authors { id name } }"
+  "query": "{ authors { id name books { id title } } }"
 }
 
 ######## BOOKS ########
