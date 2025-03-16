@@ -1,0 +1,22 @@
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "{ hello }"
+}
+
+###
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { addAuthor(name: \"J.R.R. Tolkien\") { id name } }"
+}
+
+###
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "{ authors { id name } }"
+}
