@@ -5,18 +5,61 @@ Content-Type: application/json
   "query": "{ hello }"
 }
 
-###
+######## AUTHORS ########
+
+### ADD AUTHOR
 POST http://localhost:3000/graphql
 Content-Type: application/json
 
 {
-  "query": "mutation { addAuthor(name: \"J.R.R. Tolkien\") { id name } }"
+  "query": "mutation { addAuthor(name: \"Sandy Tolkien\") { id name } }"
 }
 
-###
+### GET AUTHOR
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+# {
+#   "query": "{ author(id: \"67d6161ab34a5c844f9f817d\") { id name } }"
+# }
+
+{
+  "query": "query getAuthor($id: ID!) { author(id: $id) { id name } }",
+  "variables": {
+    "id": "67d63e0ee21a69565b84d01e"
+  }
+}
+
+### GET AUTHORS
 POST http://localhost:3000/graphql
 Content-Type: application/json
 
 {
   "query": "{ authors { id name } }"
+}
+
+######## BOOKS ########
+
+### ADD BOOK
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "mutation { addBook(title: \"Senhora dos Anéis\", authorId: \"67d63e0ee21a69565b84d01e\") { id title } }"
+}
+
+### GET BOOKS
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "{ books { id title author { id name } } }"
+}
+
+### GET BOOK
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "{ book(id: \"67d64acc717611955cf6a50e\") { title author { id name } } }"
 }

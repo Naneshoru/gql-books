@@ -3,7 +3,7 @@ query {
 }
 
 mutation {
-  addAuthor(name:"J.R.R. Tolkien") {
+  addAuthor(name: String) {
     id
     name
   }
