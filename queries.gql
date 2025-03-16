@@ -1,10 +1,65 @@
-query {
-  hello
+query GetBooks {
+  books {
+    id
+    title
+    publishedDate
+    author {
+      id
+      name
+    }
+  }
 }
 
-mutation {
-  addAuthor(name: String) {
+query GetBook($id: ID!) {
+  book(id: $id) {
+    id
+    title
+    publishedDate
+    author {
+      id
+      name
+    }
+  }
+}
+
+query GetAuthors {
+  authors {
     id
     name
+    books {
+      id
+      title
+    }
+  }
+}
+
+query GetAuthor($id: ID!) {
+  author(id: $id) {
+    id
+    name
+    books {
+      id
+      title
+    }
+  }
+}
+
+
+mutation AddAuthor($name: String!) {
+  addAuthor(name: $name) {
+    id
+    name
+  }
+}
+
+mutation AddBook($title: String!, $publishedDate: String!, $authorId: ID!) {
+  addBook(title: $title, publishedDate: $publishedDate, authorId: $authorId) {
+    id
+    title
+    publishedDate
+    author {
+      id
+      name
+    }
   }
 }
