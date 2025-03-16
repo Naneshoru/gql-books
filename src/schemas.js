@@ -29,7 +29,7 @@ const typeDefs = gql`
   type Mutation {
     addBook(title: String!, authorId: ID!, publishedDate: String!, imageUrl: String): Book
     addAuthor(name: String!): Author
-    editBook(id: ID!, title: String!, authorId: ID!, publishedDate: String!, imageUrl: String): Book
+    editBook(id: ID!, title: String, authorId: ID, publishedDate: String, imageUrl: String): Book
   }
 `
 module.exports = typeDefs;

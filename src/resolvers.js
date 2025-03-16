@@ -19,9 +19,17 @@ const resolvers = {
       if (!book) {
         throw new Error('Book not found')
       }
+
+      const updatedFields = {}
+
+      if (title != null) { updatedFields.title = title }
+      if (authorId != null) { updatedFields.authorId = authorId }
+      if (publishedDate != null) { updatedFields.publishedDate = publishedDate }
+      if (imageUrl != null) { updatedFields.imageUrl = imageUrl }
+
       await Book.updateOne(
         { _id: id }, 
-        { title, authorId, publishedDate, imageUrl }
+        { $set: updatedFields }
       )
 
       const updatebook = await Book.findById(id)

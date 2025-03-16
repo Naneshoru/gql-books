@@ -69,6 +69,11 @@ Content-Type: application/json
 POST http://localhost:3000/graphql
 Content-Type: application/json
 
+# {
+#   "query": "mutation { editBook(id: \"67d7454ccbc452efc55d74c2\", title: \"The Hobbit\", authorId: \"67d6161ab34a5c844f9f817d\", publishedDate: \"1937-09-21\", imageUrl: \"https://m.media-amazon.com/images/I/918wRKAO+cL._AC_UL320_.jpg\") { id title author { id name } publishedDate imageUrl } }"
+# }
+
 {
-  "query": "mutation { editBook(id: \"67d7454ccbc452efc55d74c2\", title: \"The Hobbit\", authorId: \"67d6161ab34a5c844f9f817d\", publishedDate: \"1937-09-21\", imageUrl: \"https://m.media-amazon.com/images/I/918wRKAO+cL._AC_UL320_.jpg\") { id title author { id name } publishedDate imageUrl } }"
+  "query": "mutation { editBook(id: \"67d64acc717611955cf6a50e\", title: \"O Senhor dos Anéis: As duas torres\", imageUrl: \"https://m.media-amazon.com/images/I/81lQ5N0QwJL._AC_UL320_.jpg\", publishedDate: \"1954-11-11\") { id title author { id name } publishedDate imageUrl } }"
 }
+
