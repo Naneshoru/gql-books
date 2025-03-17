@@ -5,6 +5,7 @@ const bookSchema = new mongoose.Schema({
   authorId:  { type: mongoose.Schema.Types.ObjectId, ref: 'Author' },
   publishedDate: { type: Date, required: true },
   imageUrl: { type: String, required: false },
+  downloadUrl: { type: String, required: false },
 });
 
 const authorSchema = new mongoose.Schema({

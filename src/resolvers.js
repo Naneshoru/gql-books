@@ -8,13 +8,13 @@ const resolvers = {
     author: async (_, { id }) => await Author.findById(id),
   },
   Mutation: {
-    addBook: async (_, { title, authorId, publishedDate, imageUrl }) => {
-      const book = new Book({ title, authorId, publishedDate, imageUrl })
+    addBook: async (_, { title, authorId, publishedDate, imageUrl, downloadUrl }) => {
+      const book = new Book({ title, authorId, publishedDate, imageUrl, downloadUrl })
       await book.save()
       return book
     },
 
-    editBook: async (_, { id, title, authorId, publishedDate, imageUrl }) => {
+    editBook: async (_, { id, title, authorId, publishedDate, imageUrl, downloadUrl }) => {
       const book = await Book.findById(id)
       if (!book) {
         throw new Error('Book not found')
@@ -26,6 +26,7 @@ const resolvers = {
       if (authorId != null) { updatedFields.authorId = authorId }
       if (publishedDate != null) { updatedFields.publishedDate = publishedDate }
       if (imageUrl != null) { updatedFields.imageUrl = imageUrl }
+      if (downloadUrl != null) { updatedFields.downloadUrl = downloadUrl }
 
       await Book.updateOne(
         { _id: id }, 

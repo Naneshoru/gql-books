@@ -1,7 +1,7 @@
 ######## AUTHORS ########
 
 ### ADD AUTHOR
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### GET AUTHOR
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 # {
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### GET AUTHORS
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 ######## BOOKS ########
 
 ### ADD BOOK
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 # {
@@ -50,7 +50,7 @@ Content-Type: application/json
 }
 
 ### GET BOOKS
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/json
 }
 
 ### GET BOOK
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 {
@@ -66,14 +66,28 @@ Content-Type: application/json
 }
 
 ### EDIT BOOK
-POST http://localhost:3000/graphql
+POST https://localhost:3000/graphql
 Content-Type: application/json
 
 # {
-#   "query": "mutation { editBook(id: \"67d7454ccbc452efc55d74c2\", title: \"The Hobbit\", authorId: \"67d6161ab34a5c844f9f817d\", publishedDate: \"1937-09-21\", imageUrl: \"https://m.media-amazon.com/images/I/918wRKAO+cL._AC_UL320_.jpg\") { id title author { id name } publishedDate imageUrl } }"
+#   "query": "mutation { editBook(id: \"67d7454ccbc452efc55d74c2\", title: \"The Hobbit\", authorId: \"67d6161ab34a5c844f9f817d\", publishedDate: \"1937-09-21\", imageUrl: \"https://m.media-amazon.com/images/I/918wRKAO+cL._AC_UL320_.jpg\", downloadUrl: \"https://ddcus.org/pdf/summer_reading/10th_Grade/O%20Hobbit%20-%20J_%20R_%20R_%20Tolkien%20-%20BEAP%2010%20Portuguese.pdf\") { id title author { id name } publishedDate imageUrl downloadUrl } }"
+# }
+
+# {
+#   "query": "mutation { editBook(id: \"67d64a00717611955cf6a50a\", title: \"O Senhor dos Anéis: A Sociedade do Anel\", authorId: \"67d6161ab34a5c844f9f817d\", imageUrl: \"https://m.media-amazon.com/images/I/91kZ8+PUO9L._AC_UL320_.jpg\", downloadUrl: \"http://educa.alfenas.mg.gov.br/content/pdf/biblioteca/senhor-dos-aneis-a-sociedade-do-anel.pdf\", publishedDate: \"1954-07-29\") { id title author { id name } publishedDate imageUrl downloadUrl } }"
+# }
+
+# {
+#   "query": "mutation { editBook(id: \"67d64acc717611955cf6a50e\", title: \"O Senhor dos Anéis: As duas torres\", authorId: \"67d6161ab34a5c844f9f817d\", imageUrl: \"https://m.media-amazon.com/images/I/81lQ5N0QwJL._AC_UL320_.jpg\", downloadUrl: \"http://educa.alfenas.mg.gov.br/content/pdf/biblioteca/senhor-dos-aneis-as-duas-torres.pdf\", publishedDate: \"1954-07-29\") { id title author { id name } publishedDate imageUrl downloadUrl } }"
+# }
+
+# {
+#   "query": "mutation { editBook(id: \"67d743fbcbc452efc55d74bd\", title: \"Harry Potter e a pedra filosofal\", authorId: \"67d74330cbc452efc55d74bb\", imageUrl: \"https://m.media-amazon.com/images/I/A1oURyPAO2L._AC_UL320_.jpg\", downloadUrl: \"http://educa.alfenas.mg.gov.br/content/pdf/biblioteca/harry-potter-e-a-pedra-filosofal.pdf\", publishedDate: \"1997-06-26\") { id title author { id name } publishedDate imageUrl downloadUrl } }"
 # }
 
 {
-  "query": "mutation { editBook(id: \"67d64acc717611955cf6a50e\", title: \"O Senhor dos Anéis: As duas torres\", imageUrl: \"https://m.media-amazon.com/images/I/81lQ5N0QwJL._AC_UL320_.jpg\", publishedDate: \"1954-11-11\") { id title author { id name } publishedDate imageUrl } }"
+  "query": "mutation { editBook(id: \"67d74499cbc452efc55d74bf\", title: \"Harry Potter e a câmara secreta\", authorId: \"67d74330cbc452efc55d74bb\", imageUrl: \"https://m.media-amazon.com/images/I/81Wbfijio4L._AC_UL320_.jpg\", downloadUrl: \"http://educa.alfenas.mg.gov.br/content/pdf/biblioteca/harry-potter-e-a-camara-secreta.pdf\", publishedDate: \"1998-07-02\") { id title author { id name } publishedDate imageUrl downloadUrl } }"
 }
 
+### DOWNLOAD PDF
+GET https://localhost:3000/proxy/download-pdf?url=http://educa.alfenas.mg.gov.br/content/pdf/biblioteca/senhor-dos-aneis-as-duas-torres.pdf

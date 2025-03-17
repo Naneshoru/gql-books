@@ -11,6 +11,7 @@ const typeDefs = gql`
     author: Author!
     publishedDate: String!
     imageUrl: String
+    downloadUrl: String
   }
 
   type Author {
@@ -27,9 +28,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addBook(title: String!, authorId: ID!, publishedDate: String!, imageUrl: String): Book
+    addBook(title: String!, authorId: ID!, publishedDate: String!, imageUrl: String, downloadUrl: String): Book
     addAuthor(name: String!): Author
-    editBook(id: ID!, title: String, authorId: ID, publishedDate: String, imageUrl: String): Book
+    editBook(id: ID!, title: String, authorId: ID, publishedDate: String, imageUrl: String, downloadUrl: String): Book
   }
 `
 module.exports = typeDefs;

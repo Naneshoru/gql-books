@@ -7,11 +7,15 @@ connectDB()
 
 const cors = require("cors");
 
+const proxy = require("./src/proxy.js")
+
 const app = express()
 
 app.use(cors())
 
 app.use(express.json())
+
+app.use('/proxy', proxy)
 
 const { ApolloServer } = require("apollo-server-express")
 
